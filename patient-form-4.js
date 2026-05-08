@@ -52,15 +52,18 @@ function validateFirstName()
 //check Middle Initial
 function validateMInitial()
 {
-    middleInt =  document.getElementById("MiddleI").value;
+    middleInt =  document.getElementById("MiddleI").value.trim();
     var Pattern = /^[a-zA-Z]$/;
 
     if (middleInt === "")
         {document.getElementById("Middle-Initial-error").innerHTML = "";
         return true;}
-        if (!middleInt.match(Pattern)) 
-            {document.getElementById("Middle-Initial-error").innerHTML = "Middle Initial can only be a letter";
-            return false;}
+    else if (!middleInt.match(Pattern)) 
+        {document.getElementById("Middle-Initial-error").innerHTML = "Middle Initial can only be a letter";
+        return false;}
+    else
+        {document.getElementById("Middle-Initial-error").innerHTML = "";
+        return true;}
 }
 
 //checking Last Name
