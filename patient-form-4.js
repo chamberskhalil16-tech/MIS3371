@@ -57,7 +57,7 @@ function validateMInitial()
 
     if (middleInt === "")
         {document.getElementById("Middle-Initial-error").innerHTML = "";
-        return true;}
+        return false;}
     else if (!middleInt.match(Pattern)) 
         {document.getElementById("Middle-Initial-error").innerHTML = "Middle Initial can only be a letter";
         return false;}
