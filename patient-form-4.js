@@ -247,6 +247,9 @@ function validatePassword()
 
     const errorMessage = [];
 
+    // Clear previous errors for password
+    document.getElementById("Password-error").innerHTML = "";
+ 
     //Check that Password isn't empty
     if(password == "")
     {document.getElementById("Password-error").innerHTML = "Please create a password for your account"
