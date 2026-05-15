@@ -23,36 +23,6 @@ slider.oninput = function () {
     output.innerHTML = this.value;
 };
 
-//Group of Functions used to shorten repetitve code for common checks
-
-//Function to validate empty fields
-// function EmptyField(ID, errorID, message) 
-// {
-//     if (ID == "")
-//     {document.getElementById(errorID).innerHTML = message;
-//     return false;}
-// }
-
-// //Function to enforce character limits
-// function ChararcterLimit(ID, errorID, min, max, message)
-// {
-//     if (min < ID.length < max)
-//     {document.getElementById(errorID).innerHTML = message;
-//     return false;}
-// }
-
-// //Function to enforce character types
-// function characterType(ID, errorID, Pattern, message)
-// {
-//     if (ID != "")
-//         {if (!ID.Match(Pattern))
-//         {document.getElemnyByID(errorID).innerHTML = message}
-//         return false;}
-// }
-//
-
-//Everything below deals with checking all fields before submitting information to server
-
 //checking First Name
 function validateFirstName()
 {
@@ -277,6 +247,9 @@ function validatePassword()
 
     const errorMessage = [];
 
+    // Clear previous error
+    document.getElementById("Password-error").innerHTML = "";
+
     //Check that Password isn't empty
     if(password == "")
     {document.getElementById("Password-error").innerHTML = "Please create a password for your account"
@@ -301,6 +274,12 @@ function validatePassword()
     errorContainer.innerHTML = errorMessage
     .map(msg => `<span>${msg}</span><br>`)
     .join("");
+    
+    if (errorMessage.length > 0) {
+        errorContainer.style.display = "block";
+    } else {
+        errorContainer.style.display = "none";
+    }
     
     if (errorMessage.length > 0)
         return false;
